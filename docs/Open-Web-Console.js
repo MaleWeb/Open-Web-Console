@@ -4,12 +4,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.1.1
+ * version 0.1.2
  *
  * Copyright (c) 2021 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Fri Dec 03 2021 11:03:37 GMT+0800 (中国标准时间)
+ * Date:Fri Dec 03 2021 21:13:38 GMT+0800 (GMT+08:00)
  */
 (function () {
   'use strict';
@@ -726,7 +726,7 @@
     var styleElement = document.createElement('style');
     var head = document.head || document.getElementsByTagName('head')[0];
     styleElement.setAttribute('id', 'open-web-console@style');
-    styleElement.innerHTML = scssToCss("\n\n    [open-web-console]{\n        overflow: auto;\n        background-color:#f3f3f4;\n        outline: 5px solid #cfcfd4;\n        border-radius: 5px;\n        user-select: none;\n        [isopen]{\n            position:relative;\n            &:before{\n                content: \" \";\n                display: inline-block;\n                width: 0;\n                height: 0;\n                position: absolute;\n                left: -15px;\n                top: 4px;\n            }\n        }\n        [isopen='no']{\n            &>div{\n                display:none;\n            }\n            &:before{\n                border-top: 5px solid transparent;\n                border-bottom: 5px solid transparent;\n                border-left: 10px solid #9e9e9e;\n            }\n        }\n        [isopen='yes']{\n            &:before{\n                border-left: 5px solid transparent;\n                border-right: 5px solid transparent;\n                border-top: 10px solid #9e9e9e;\n            }\n        }\n        [defType='showobject']{\n            span{\n                display:block;\n                margin-top:5px;\n            }\n            .item{\n                margin-left:20px;\n            }\n            i{\n                font-style: normal;\n                cursor: pointer;\n            }\n        }\n\n        &>.item{\n            padding:10px;\n            border-bottom: 1px solid #cfcfd4;\n            &>span{\n                display: inline-block;\n                vertical-align: top;\n                &.time{\n                    width: 80px;\n                }\n                &.msg{\n\n                }\n            }\n        }\n        .item{\n            white-space: nowrap;\n        }\n    }\n    ");
+    styleElement.innerHTML = scssToCss("\n\n    [open-web-console]{\n        overflow: auto;\n        background-color:#f3f3f4;\n        outline: 5px solid #cfcfd4;\n        border-radius: 5px;\n        user-select: none;\n        font-size:12px;\n        [isopen]{\n            position:relative;\n            &:before{\n                content: \" \";\n                display: inline-block;\n                width: 0;\n                height: 0;\n                position: absolute;\n                left: -15px;\n                top: 4px;\n            }\n        }\n        [isopen='no']{\n            &>div{\n                display:none;\n            }\n            &:before{\n                border-top: 5px solid transparent;\n                border-bottom: 5px solid transparent;\n                border-left: 10px solid #9e9e9e;\n            }\n        }\n        [isopen='yes']{\n            &:before{\n                border-left: 5px solid transparent;\n                border-right: 5px solid transparent;\n                border-top: 10px solid #9e9e9e;\n            }\n        }\n        [defType='showobject']{\n            span{\n                display:block;\n                margin-top:5px;\n            }\n            .item{\n                margin-left:20px;\n            }\n            i{\n                font-style: normal;\n                cursor: pointer;\n            }\n        }\n\n        &>.item{\n            padding:10px;\n            border-bottom: 1px solid #cfcfd4;\n            &>span{\n                display: inline-block;\n                vertical-align: top;\n                &.time{\n                    width: 80px;\n                    font-weight: 800;\n                }\n                &.msg{\n\n                }\n            }\n        }\n        .item{\n            white-space: nowrap;\n        }\n    }\n    ");
     styleElement.setAttribute('type', 'text/css');
     head.appendChild(styleElement);
   }

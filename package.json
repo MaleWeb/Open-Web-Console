@@ -1,6 +1,6 @@
 {
   "name": "open-web-console",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "一个类似浏览器控制台Console的插件，可以实现在页面中进行打印。",
   "main": "dist/Open-Web-Console.min.js",
   "scripts": {

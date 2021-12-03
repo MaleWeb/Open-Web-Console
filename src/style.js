@@ -16,6 +16,7 @@ export default function () {
         outline: 5px solid #cfcfd4;
         border-radius: 5px;
         user-select: none;
+        font-size:12px;
         [isopen]{
             position:relative;
             &:before{
@@ -67,6 +68,7 @@ export default function () {
                 vertical-align: top;
                 &.time{
                     width: 80px;
+                    font-weight: 800;
                 }
                 &.msg{
 
