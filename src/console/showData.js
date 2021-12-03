@@ -3,8 +3,6 @@ import { isString, isFunction, isUndefined, isNull, isNumber, isBoolean } from '
 
 let doit = (target, obj) => {
 
-    console.log(target.getElementsByTagName('i')[0]);
-
     xhtml.bind(target.getElementsByTagName('i')[0], 'click', () => {
 
         // 如果是字符串，就不需要展开了

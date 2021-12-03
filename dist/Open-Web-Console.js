@@ -4,12 +4,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.1.0
+ * version 0.1.1
  *
  * Copyright (c) 2021 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Fri Dec 03 2021 10:59:23 GMT+0800 (中国标准时间)
+ * Date:Fri Dec 03 2021 11:03:37 GMT+0800 (中国标准时间)
  */
 (function () {
   'use strict';
@@ -443,7 +443,6 @@
   }
 
   var doit = function doit(target, obj) {
-    console.log(target.getElementsByTagName('i')[0]);
     xhtml.bind(target.getElementsByTagName('i')[0], 'click', function () {
       // 如果是字符串，就不需要展开了
       if (isString(obj)) return; // 如果没有加载过
