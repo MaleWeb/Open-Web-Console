@@ -51,6 +51,10 @@
             padding: 10px;
             outline: 1px solid gray;
         }
+
+        #console {
+            height: 300px;
+        }
     </style>
 </head>
 
@@ -62,10 +66,61 @@
         Open-Web-Console
         <h2>（一个类似浏览器控制台Console的插件，可以实现在页面中进行打印。）</h2>
     </header>
-
+    <h3>
+        引入
+    </h3>
     <p>
-        开发中，敬请期待！
+        首先你需要通过命令行安装，就像这样：
     </p>
+    <pre>npm install --save open-web-console</pre>
+    <p>
+        安装好了以后，引入即可：
+    </p>
+    <pre>import OpenWebConsole from 'open-web-console';</pre>
+    <p>
+        当然，你也可以通过CDN的方式引入：
+    </p>
+    <pre>&lt;script src='https://cdn.jsdelivr.net/npm/open-web-console@0'&gt;&lt;/script&gt;</pre>
+    <h3>
+        语法
+    </h3>
+    <p>
+        首先，你需要通过new创建打印对象：
+    </p>
+    <pre>var myConsole = new OpenWebConsole({
+    el: DOM
+});</pre>
+    <p>
+        然后，直接调用上面的打印方法即可，可用的打印方法有：log、trace、info、error、warn、debug。
+    </p>
+    <h3>
+        例子
+    </h3>
+    <p>
+        下面就是一个运行的例子：
+    </p>
+    <div id="console"></div>
+    <p>
+        具体代码如下：
+    </p>
+    <pre>var myConsole = new OpenWebConsole({
+    el: document.getElementById('console')
+});
+
+myConsole.error('Open-Web-Console');
+myConsole.log([1, 2, 3]);
+myConsole.debug(window);</pre>
+    <script>
+
+        var myConsole = new OpenWebConsole({
+            el: document.getElementById('console')
+        });
+
+        myConsole.error('Open-Web-Console');
+        myConsole.log([1, 2, 3]);
+        myConsole.debug(window);
+
+    </script>
 
 </body>
 

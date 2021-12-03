@@ -1,6 +1,6 @@
 {
   "name": "open-web-console",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "description": "一个类似浏览器控制台Console的插件，可以实现在页面中进行打印。",
   "main": "dist/Open-Web-Console.min.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "terser": "^4.1.2"
   },
   "dependencies": {
+    "@hai2007/algorithm": "^0.7.3",
     "@hai2007/browser": "^0.2.0",
     "@hai2007/tool": "^1.0.0"
   }
