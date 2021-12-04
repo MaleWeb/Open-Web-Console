@@ -4,12 +4,12 @@
  *
  * author 你好2007 < https://hai2007.gitee.io/sweethome >
  *
- * version 0.1.2
+ * version 0.1.3
  *
  * Copyright (c) 2021 hai2007 走一步，再走一步。
  * Released under the MIT license
  *
- * Date:Fri Dec 03 2021 21:13:38 GMT+0800 (GMT+08:00)
+ * Date:Sat Dec 04 2021 23:51:21 GMT+0800 (GMT+08:00)
  */
 (function () {
   'use strict';
@@ -28,6 +28,80 @@
     }
 
     return _typeof(obj);
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _createForOfIteratorHelper(o, allowArrayLike) {
+    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+
+    if (!it) {
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it) o = it;
+        var i = 0;
+
+        var F = function () {};
+
+        return {
+          s: F,
+          n: function () {
+            if (i >= o.length) return {
+              done: true
+            };
+            return {
+              done: false,
+              value: o[i++]
+            };
+          },
+          e: function (e) {
+            throw e;
+          },
+          f: F
+        };
+      }
+
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+
+    var normalCompletion = true,
+        didErr = false,
+        err;
+    return {
+      s: function () {
+        it = it.call(o);
+      },
+      n: function () {
+        var step = it.next();
+        normalCompletion = step.done;
+        return step;
+      },
+      e: function (e) {
+        didErr = true;
+        err = e;
+      },
+      f: function () {
+        try {
+          if (!normalCompletion && it.return != null) it.return();
+        } finally {
+          if (didErr) throw err;
+        }
+      }
+    };
   }
 
   /**
@@ -163,6 +237,10 @@
   var isString = _isString;
 
   var isFunction = _isFunction;
+  var isArray = function isArray(input) {
+    return Array.isArray(input);
+  };
+  var isPlainObject = _isPlainObject; // 结点类型
 
   var isElement = function isElement(input) {
     return domTypeHelp([1, 9, 11], input);
@@ -442,6 +520,40 @@
     return now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
   }
 
+  function toString$1 (val) {
+    if (isArray(val)) {
+      var resultData = "[";
+
+      var _iterator = _createForOfIteratorHelper(val),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var item = _step.value;
+          resultData += item + ',';
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      return resultData.replace(/\,$/, ']');
+    }
+
+    if (isPlainObject(val)) {
+      var _resultData = "{";
+
+      for (var key in val) {
+        _resultData += key + ":" + val[key] + ",";
+      }
+
+      return _resultData.replace(/\,$/, '}');
+    }
+
+    return val;
+  }
+
   var doit = function doit(target, obj) {
     xhtml.bind(target.getElementsByTagName('i')[0], 'click', function () {
       // 如果是字符串，就不需要展开了
@@ -454,7 +566,7 @@
 
         for (var key in obj) {
           try {
-            template += "<span isopen='no'><i><em style='font-style:normal;color:#905'>".concat(key, "</em>:").concat(obj[key], "</i></span>");
+            template += "<span isopen='no'><i><em style='font-style:normal;color:#905'>".concat(key, "</em>:").concat(toString$1(obj[key]), "</i></span>");
           } catch (e) {// todo
           }
         }
@@ -484,7 +596,7 @@
 
       target.setAttribute('hadload', 'no');
       target.setAttribute('isopen', 'no');
-      target.innerHTML = "<i>".concat(msg, "</i>");
+      target.innerHTML = "<i>".concat(toString$1(msg), "</i>");
       doit(target, msg);
     }
   }

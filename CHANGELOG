@@ -10,3 +10,7 @@ v0.1.2:
     date:2021-12-03
     changes:
       -  UI优化
+v0.1.3:
+    date:2021-12-04
+    changes:
+      -  优化JSON和数组打印格式

@@ -1,4 +1,4 @@
-import { isElement, isObject } from '@hai2007/tool/type';
+import { isObject } from '@hai2007/tool/type';
 import xhtml from '@hai2007/browser/xhtml';
 import getTime from '../tool/getTime';
 import showData from './showData';

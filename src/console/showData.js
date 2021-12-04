@@ -1,5 +1,6 @@
 import xhtml from '@hai2007/browser/xhtml';
 import { isString, isFunction, isUndefined, isNull, isNumber, isBoolean } from '@hai2007/tool/type';
+import toString from './toString';
 
 let doit = (target, obj) => {
 
@@ -18,7 +19,7 @@ let doit = (target, obj) => {
 
             for (let key in obj) {
                 try {
-                    template += `<span isopen='no'><i><em style='font-style:normal;color:#905'>${key}</em>:${obj[key]}</i></span>`;
+                    template += `<span isopen='no'><i><em style='font-style:normal;color:#905'>${key}</em>:${toString(obj[key])}</i></span>`;
                 } catch (e) {
                     // todo
                 }
@@ -59,7 +60,7 @@ export default function (target, msg) {
         // 默认作为对象显示
         target.setAttribute('hadload', 'no');
         target.setAttribute('isopen', 'no');
-        target.innerHTML = `<i>${msg}</i>`;
+        target.innerHTML = `<i>${toString(msg)}</i>`;
         doit(target, msg);
     }
 };
