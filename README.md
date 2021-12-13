@@ -3,7 +3,7 @@
 
 
 <p>
-  <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=open-web-console"><img src="https://img.shields.io/npm/dm/open-webcConsole.svg" alt="downloads"></a>
+  <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=open-web-console"><img src="https://img.shields.io/npm/dm/open-web-console.svg" alt="downloads"></a>
   <a href="https://www.npmjs.com/package/open-web-console"><img src="https://img.shields.io/npm/v/open-web-console.svg" alt="Version"></a>
   <a href="https://github.com/hai2007/Open-Web-Console/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/open-web-console.svg" alt="License"></a>
   <a href="https://github.com/hai2007/Open-Web-Console">
